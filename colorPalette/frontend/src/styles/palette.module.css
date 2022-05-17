@@ -1,0 +1,259 @@
+.colored {
+    width: 12vw;
+    height: 60vh;
+}
+
+#top button {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+}
+
+button img {
+    width: 20px;
+    height: 20px;
+}
+
+.window #top {
+    display: flex;
+    width: 12vw;
+    height: 3vh;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+
+#top p {
+
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.strip p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.strip {
+    width: 14vw;
+    height: 80vh;
+    background-color: rgb(251, 245, 245);
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.window #one {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transform-origin: bottom;
+}
+
+.window #two {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-22deg);
+    transform-origin: bottom;
+}
+
+.window #three {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transform-origin: bottom;
+}
+
+.window #four {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(22deg);
+    transform-origin: bottom;
+}
+
+.window #five {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: bottom;
+}
+
+.window {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#ten {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* .coloredTest {
+    width: 12vw;
+    height: 70vh;
+} */
+
+.animation1 {
+    width: 14vw;
+    height: 80vh;
+    background-color: rgb(251, 245, 245);
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    animation-name: anim1;
+    animation-duration: 0.7s;
+
+}
+
+.animation2 {
+    width: 14vw;
+    height: 80vh;
+    background-color: rgb(251, 245, 245);
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    animation-name: anim2;
+    animation-duration: 0.7s;
+
+}
+
+.animation3 {
+    width: 14vw;
+    height: 80vh;
+    background-color: rgb(251, 245, 245);
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    animation-name: anim3;
+    animation-duration: 0.7s;
+
+}
+
+.animation4 {
+    width: 14vw;
+    height: 80vh;
+    background-color: rgb(251, 245, 245);
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    animation-name: anim4;
+    animation-duration: 0.7s;
+
+}
+
+.animation5 {
+    width: 14vw;
+    height: 80vh;
+    background-color: rgb(251, 245, 245);
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    animation-name: anim5;
+    animation-duration: 0.7s;
+
+}
+
+@keyframes anim1 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(-45deg)
+    }
+}
+
+@keyframes anim2 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(-22deg);
+    }
+}
+
+@keyframes anim3 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes anim4 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(22deg);
+    }
+}
+
+@keyframes anim5 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+.animation {
+    width: 12vw;
+    height: 70vh;
+    animation-name: rotate10;
+    animation-duration: 3s;
+}
+
+@keyframes rotate10 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
