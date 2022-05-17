@@ -11,7 +11,9 @@ function randomArr(arr) {
     return arr[Math.floor(Math.random() * arr.length)]
 }
 
-app.get('/color/palette', (req, res) => {
+app.post('/color/palette', (req, res) => {
+    // const { colors } = req.body
+    console.log(req.body)
     res.status(200).json(color = {
         color1: {
             color: randomColor(),
