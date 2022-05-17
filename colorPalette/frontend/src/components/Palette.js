@@ -1,38 +1,35 @@
-import { useState } from "react"
-import { useEffect } from "react"
+import { useEffect, useState } from 'react';
 import styles from "../styles/palette.module.css"
-
-export function Palette() {
+function Palette() {
     const [state, setState] = useState(false)
-    const [colors, setColors] = useState({
-        color1: {
-            color: "#2A5E7A",
-            locked: false
-        },
-        color2: {
-            color: "#5183CC",
-            locked: false
-        },
-        color3: {
-            color: "#4978E1",
-            locked: false
-        },
-        color4: {
-            color: "#58CFF3",
-            locked: false
-        },
-        color5: {
-            color: "#91F0F3",
-            locked: false
+    const [colors, setColors] = useState(new Array(5).fill({ hex: "", blocked: false }))
+
+
+    const animToggle = () => {
+        setState(true)
+    }
+
+    useEffect(() => {
+        const handleUpdate = (ev) => {
+            if (ev.key === " ") {
+                fetchColors()
+                animToggle()
+            }
         }
-    })
+        document.addEventListener("keypress", handleUpdate)
 
+        return () => {
+            document.removeEventListener("keypress", handleUpdate)
+        }
+    }, [colors])
 
-    const handleGet = async () => {
-        console.log(JSON.stringify({
-            colors: colors
-        }))
-        const res = await fetch("/color/palette", {
+    useEffect(() => {
+        fetchColors()
+    }, [])
+
+    function fetchColors() {
+        console.log(colors)
+        fetch("/create-colors", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -41,74 +38,60 @@ export function Palette() {
                 colors
             })
         })
-        const json = await res.json()
-        setColors(json)
+            .then(res => res.json())
+            .then(corpo => setColors(corpo.paleta))
     }
 
-    const animToggle = () => {
-        setState(true)
-    }
-
-    useEffect(() => {
-        window.addEventListener('keypress', (ev) => {
-            if (ev.key === " ") {
-                handleGet()
-                animToggle()
-            }
+    function handleColorBlock(i) {
+        //Inverte o estado de bloqueio da cor no indice i
+        setColors((prevColors) => {
+            return prevColors.map((color, idx) => idx === i ? { ...color, blocked: !color.blocked } : color)
         })
-
-        return () => {
-            window.removeEventListener('keypress', () => {
-                handleGet()
-                animToggle()
-            })
-        }
-    }, [])
-    function blockColor(i) {
-        let bool = false
     }
 
     return (
         <div className={styles.window}>
             <div className={styles.cartoes}>
-                <div
-                    onAnimationEnd={() => setState(false)}
-                    id={styles.one} className={[!state ? styles.strip : styles.animation1, styles.hover1].join(" ")}>
+                <div onAnimationEnd={() => setState(false)} id={styles.one}
+                    className={[!state ? styles.strip : styles.animation1, styles.hover1].join(" ")}>
                     <div id={styles.top}>
-                        <p>{colors.color1.color}</p>
-                        <button onClick={() => setColors({ ...colors, color1: { ...colors.color1, locked: !colors.color1.locked } })}><img src={!colors.color1.locked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <p>{colors[0].hex}</p>
+                        <button onClick={() => handleColorBlock(0)}><img src={!colors[0].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors.color1.color }}></div>
+                    <div className={styles.colored} style={{ backgroundColor: colors[0].hex }}></div>
                 </div>
+
                 <div id={styles.two} className={[!state ? styles.strip : styles.animation2, styles.hover2].join(" ")}>
                     <div id={styles.top}>
-                        <p>{colors.color2.color}</p>
-                        <button onClick={() => setColors({ ...colors, color2: { ...colors.color2, locked: !colors.color2.locked } })}><img src={!colors.color2.locked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <p>{colors[1].hex}</p>
+                        <button onClick={() => handleColorBlock(1)}><img src={!colors[1].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors.color2.color }}></div>
+                    <div className={styles.colored} style={{ backgroundColor: colors[1].hex }}></div>
                 </div>
                 <div id={styles.three} className={[!state ? styles.strip : styles.animation3, styles.hover3].join(" ")}>
                     <div id={styles.top}>
-                        <p>{colors.color3.color}</p>
-                        <button onClick={() => setColors({ ...colors, color3: { ...colors.color3, locked: !colors.color3.locked } })}><img src={!colors.color3.locked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <p>{colors[2].hex}</p>
+                        <button onClick={() => handleColorBlock(2)}><img src={!colors[2].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors.color3.color }}></div>
+                    <div className={styles.colored} style={{ backgroundColor: colors[2].hex }}></div>
                 </div>
                 <div id={styles.four} className={[!state ? styles.strip : styles.animation4, styles.hover4].join(" ")}>
                     <div id={styles.top}>
-                        <p>{colors.color4.color}</p>
-                        <button onClick={() => setColors({ ...colors, color4: { ...colors.color4, locked: !colors.color4.locked } })}><img src={!colors.color4.locked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <p>{colors[3].hex}</p>
+                        <button onClick={() => handleColorBlock(3)}><img src={!colors[3].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors.color4.color }}></div>
+                    <div className={styles.colored} style={{ backgroundColor: colors[3].hex }}></div>
                 </div>
                 <div id={styles.five} className={[!state ? styles.strip : styles.animation5, styles.hover5].join(" ")}>
                     <div id={styles.top}>
-                        <p>{colors.color5.color}</p>
-                        <button onClick={() => setColors({ ...colors, color5: { ...colors.color5, locked: !colors.color5.locked } })}><img src={!colors.color5.locked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <p>{colors[4].hex}</p>
+                        <button onClick={() => handleColorBlock(4)}><img src={!colors[4].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors.color5.color }}></div>
+                    <div className={styles.colored} style={{ backgroundColor: colors[4].hex }}></div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
+
+export default Palette;

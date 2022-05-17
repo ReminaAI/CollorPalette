@@ -1,46 +1,22 @@
-const express = require('express')
-const app = express()
-const port = 3050
+const express = require("express")
+const app = express();
+const PORT = 3050
 app.use(express.json())
 
-function randomColor() {
-    let characters = "0123456789ABCDEF".split("")
-    return `#${new Array(6).fill(0).map(e => e = randomArr(characters)).join("")}`
-}
-function randomArr(arr) {
-    return arr[Math.floor(Math.random() * arr.length)]
-}
-
-app.post('/color/palette', (req, res) => {
-    // const { colors } = req.body
-    console.log(req.body)
-    res.status(200).json(color = {
-        color1: {
-            color: randomColor(),
-            locked: false
-        },
-        color2: {
-            color: randomColor(),
-            locked: false
-        },
-        color3: {
-            color: randomColor(),
-            locked: false
-        },
-        color4: {
-            color: randomColor(),
-            locked: false
-        },
-        color5: {
-            color: randomColor(),
-            locked: false
-        }
-    })
+app.post("/create-colors", (req, res) => {
+    const {colors} = req.body
+    const paleta = geraPaleta(colors)
+    res.status(200).json({ paleta })
 })
 
+app.listen(PORT, () => console.log(`Listening in http://localhost:${PORT}`))
 
+function geraPaleta(colors) {
+    return colors.map(color => ({blocked: color.blocked, hex: color.blocked ? color.hex : geraCor()}))
+}
 
-
-app.listen(port, () => {
-    console.log(`À escuta em http://localhost:${port}`)
-})
+function geraCor() {
+    return new Array(3).fill("").reduce((acc, atual) => {
+        return acc + Math.floor(Math.random() * 255).toString(16).padStart(2, "0")
+    }, "#")
+}

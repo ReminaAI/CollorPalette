@@ -222,99 +222,83 @@ button img {
 
 @keyframes anim1 {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     30% {
-        transform: translate(-50%, -60%) rotate(0deg);
+        transform: translate(-50%, -60%) rotate(0deg) translate(0%, 15%);
     }
 
     60% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     100% {
-        transform: translate(-50%, -50%) rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg) translate(0%, 15%);
     }
 }
 
 @keyframes anim2 {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     30% {
-        transform: translate(-50%, -55%) rotate(0deg);
+        transform: translate(-50%, -55%) rotate(0deg) translate(0%, 15%);
     }
 
     60% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     100% {
-        transform: translate(-50%, -50%) rotate(-22deg);
+        transform: translate(-50%, -50%) rotate(-22deg) translate(0%, 15%);
     }
 }
 
 @keyframes anim3 {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     100% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 }
 
 @keyframes anim4 {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     30% {
-        transform: translate(-50%, -45%) rotate(0deg);
+        transform: translate(-50%, -45%) rotate(0deg) translate(0%, 15%);
     }
 
     60% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     100% {
-        transform: translate(-50%, -50%) rotate(22deg);
+        transform: translate(-50%, -50%) rotate(22deg) translate(0%, 15%);
     }
 }
 
 @keyframes anim5 {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     30% {
-        transform: translate(-50%, -40%) rotate(0deg);
+        transform: translate(-50%, -40%) rotate(0deg) translate(0%, 15%);
     }
 
     60% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg) translate(0%, 15%);
     }
 
     100% {
-        transform: translate(-50%, -50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(45deg) translate(0%, 15%);
     }
 }
 
-.animation {
-    width: 12vw;
-    height: 70vh;
-    animation-name: rotate10;
-    animation-duration: 3s;
-}
-
-@keyframes rotate10 {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
