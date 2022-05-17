@@ -56,38 +56,38 @@ function Palette() {
                     className={[!state ? styles.strip : styles.animation1, styles.hover1].join(" ")}>
                     <div id={styles.top}>
                         <p>{colors[0].hex}</p>
-                        <button onClick={() => handleColorBlock(0)}><img src={!colors[0].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <button><img src={!colors[0].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors[0].hex }}></div>
+                    <div onClick={() => handleColorBlock(0)} className={styles.colored} style={{ backgroundColor: colors[0].hex }}></div>
                 </div>
 
                 <div id={styles.two} className={[!state ? styles.strip : styles.animation2, styles.hover2].join(" ")}>
                     <div id={styles.top}>
                         <p>{colors[1].hex}</p>
-                        <button onClick={() => handleColorBlock(1)}><img src={!colors[1].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <button><img src={!colors[1].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors[1].hex }}></div>
+                    <div onClick={() => handleColorBlock(1)} className={styles.colored} style={{ backgroundColor: colors[1].hex }}></div>
                 </div>
                 <div id={styles.three} className={[!state ? styles.strip : styles.animation3, styles.hover3].join(" ")}>
                     <div id={styles.top}>
                         <p>{colors[2].hex}</p>
-                        <button onClick={() => handleColorBlock(2)}><img src={!colors[2].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <button><img src={!colors[2].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors[2].hex }}></div>
+                    <div onClick={() => handleColorBlock(2)} className={styles.colored} style={{ backgroundColor: colors[2].hex }}></div>
                 </div>
                 <div id={styles.four} className={[!state ? styles.strip : styles.animation4, styles.hover4].join(" ")}>
                     <div id={styles.top}>
                         <p>{colors[3].hex}</p>
-                        <button onClick={() => handleColorBlock(3)}><img src={!colors[3].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <button><img src={!colors[3].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors[3].hex }}></div>
+                    <div onClick={() => handleColorBlock(3)} className={styles.colored} style={{ backgroundColor: colors[3].hex }}></div>
                 </div>
                 <div id={styles.five} className={[!state ? styles.strip : styles.animation5, styles.hover5].join(" ")}>
                     <div id={styles.top}>
                         <p>{colors[4].hex}</p>
-                        <button onClick={() => handleColorBlock(4)}><img src={!colors[4].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
+                        <button><img src={!colors[4].blocked ? "/unlocked.svg" : "/locked.svg"} /></button>
                     </div>
-                    <div className={styles.colored} style={{ backgroundColor: colors[4].hex }}></div>
+                    <div onClick={() => handleColorBlock(4)} className={styles.colored} style={{ backgroundColor: colors[4].hex }}></div>
                 </div>
             </div>
         </div>
