@@ -15,26 +15,20 @@ let arrPal = new Array(5).fill("").map(e => e = geraCor())
 function geraPal() {
     return arrPal = arrPal.map(e => e = geraCor())
 }
-const RGBtoHSL = (r, g, b) => {
+function RGBToHSL(r, g, b) {
+    // Make r, g, and b fractions of 1
     r /= 255;
     g /= 255;
     b /= 255;
-    const l = Math.max(r, g, b);
-    const s = l - Math.min(r, g, b);
-    const h = s
-        ? l === r
-            ? (g - b) / s
-            : l === g
-                ? 2 + (b - r) / s
-                : 4 + (r - g) / s
-        : 0;
-    return [
-        60 * h < 0 ? 60 * h + 360 : 60 * h,
-        100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
-        (100 * (2 * l - s)) / 2,
-    ];
-};
-console.log()
+
+    // Find greatest and smallest channel values
+    let cmin = Math.min(r, g, b),
+        cmax = Math.max(r, g, b),
+        delta = cmax - cmin,
+        h = 0,
+        s = 0,
+        l = 0;
+}
 
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec((hex.split("").slice(1).join("")));
@@ -52,9 +46,8 @@ function geraPaleta(colors) {
     return colors.map((color, i) => ({
         blocked: color.blocked,
         hex: color.blocked ? color.hex : arrPal[i],
+        hsl: color.blocked ? color.hsl : RGBToHSL(...hexToRgb(arrPal[i])),
         rgb: color.blocked ? color.rgb : hexToRgb(arrPal[i]),
-        hsl: color.blocked ? color.hsl : RGBtoHSL(...hexToRgb(arrPal[i]))
-
     }))
 }
 
